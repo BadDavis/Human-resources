@@ -19,13 +19,13 @@ public class EmployeeResource {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Employee>> getAllEmployees() {
         List<Employee> employeeList = service.findAllEmployee();
         return new ResponseEntity<>(employeeList, HttpStatus.OK);
     }
 
-    @GetMapping("/{employeeId}")
+    @GetMapping("/find/{employeeId}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable("employeeId") Long id) {
         Employee employee = service.findEmployeeById(id);
         return new ResponseEntity<>(employee, HttpStatus.OK);
